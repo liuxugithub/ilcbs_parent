@@ -47,7 +47,6 @@ public class SendSms {
 				    new NameValuePair("content", content),
 		};
 		method.setRequestBody(data);
-
 		try {
 			client.executeMethod(method);
 			

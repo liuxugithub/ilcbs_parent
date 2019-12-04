@@ -17,9 +17,9 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.itcast.utils.FormatStyle;
-import cn.itcast.utils.UtilFuns;
 
+import godday.xin.utils.FormatStyle;
+import godday.xin.utils.UtilFuns;
 
 
 public class FileUtil {
@@ -45,7 +45,8 @@ public class FileUtil {
 	}
 	
 
-    private String getNameWithoutExtension(String fileName){
+    private String getNameWithoutExtension(String fileName)
+    {
         return fileName.substring(0, fileName.lastIndexOf("."));
     }
 	
@@ -770,6 +771,8 @@ public class FileUtil {
 	
 	/* 列出目录下的所有文件，去除prefix路径~虚拟路径 */
 	public List fileList(String dir, String prefix){
+
+
 		FormatStyle formatStyle = new FormatStyle();
 		File f = new File(dir);
 		File[] files = f.listFiles();

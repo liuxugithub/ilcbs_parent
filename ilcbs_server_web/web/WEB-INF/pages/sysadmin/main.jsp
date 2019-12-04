@@ -39,7 +39,7 @@
 				<br/>管辖部门管辖人员：实现对特定部门, 特定人员分管关系。
 				</td>
 			</tr>  
-			
+
 			<tfoot>
 				<tr>
 					<td colspan="2" class="tableFooter"></td>

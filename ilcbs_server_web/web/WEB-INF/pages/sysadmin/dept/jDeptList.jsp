@@ -39,10 +39,8 @@
 	     }
 	</script>
 </head>
-
 <body>
 <form name="icform" method="post">
-
 <div id="menubar">
 <div id="middleMenubar">
 <div id="innerMenubar">
@@ -52,7 +50,7 @@
 <li id="new"><a href="#" onclick="formSubmit('deptAction_tocreate','_self');this.blur();">新增</a></li>
 <li id="update"><a href="#" onclick="javascript:toUpdate()">修改</a></li>
 <li id="delete"><a href="#" onclick="formSubmit('deptAction_delete','_self');this.blur();">删除</a></li>
-<li id="update"><a href="#" onclick="formSubmit('smsAction_sendMsg','_self');this.blur();">发短信</a></li>
+<li id="send_message"><a href="#" onclick="formSubmit('smsAction_sendMsg','_self');this.blur();">发短信</a></li>
 </ul>
   </div>
 </div>
@@ -84,7 +82,6 @@
 	</thead>
 	<tbody class="tableBody" >
     ${links }
-	
 	<c:forEach items="${results }" var="dept"  varStatus="st">
 		<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
 			<td><input type="checkbox" name="id" value="${dept.id }"/></td>
@@ -97,10 +94,7 @@
 	</tbody>
 </table>
 </div>
- 
 </div>
- 
- 
 </form>
 </body>
 </html>

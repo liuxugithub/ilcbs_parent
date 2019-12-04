@@ -63,7 +63,7 @@
 	            		headerKey="" headerValue="--请选择--"
 	            	></s:select>
 	            </td>
-	        </tr>		
+	        </tr>
 	        <tr>
 	            <td class="columnTitle">入职时间：</td>
 	            <td class="tableContent">
@@ -73,7 +73,7 @@
 				</td>
 				<td class="columnTitle">薪水：</td>
 	            <td class="tableContent"><input type="text" name="userinfo.salary" value=""/></td>
-	        </tr>		
+	        </tr>
 	        <tr>
 	            <td class="columnTitle">等级：</td>
 	            <td class="tableContentAuto">
@@ -88,13 +88,13 @@
 	            	<input type="radio" name="userinfo.gender" value="1" class="input"/>男
 	            	<input type="radio" name="userinfo.gender" value="0" class="input"/>女
 	            </td>
-	        </tr>	
+	        </tr>
         	<tr>
 	            <td class="columnTitle">岗位：</td>
 	            <td class="tableContent"><input type="text" name="userinfo.station" value=""/></td>
 	            <td class="columnTitle">电话：</td>
 	            <td class="tableContent"><input type="text" name="userinfo.telephone" value=""/></td>
-	        </tr>	
+	        </tr>
         	<tr>
         	    <td class="columnTitle">邮箱：</td>
 	            <td class="tableContent"><input type="text" name="userinfo.email" value=""/></td>
@@ -104,7 +104,7 @@
 	            	 value=""
 	             	onclick="WdatePicker({el:this,isShowOthers:true,dateFmt:'yyyy-MM-dd'});"/>
 				</td>
-	        </tr>	
+	        </tr>
         	<tr>
         	    <td class="columnTitle">排序号：</td>
 	            <td class="tableContent"><input type="text" name="userinfo.orderNo" value=""/></td>
@@ -112,7 +112,7 @@
 	            <td class="tableContent">
 	            	<textarea name="userinfo.remark" style="height:120px;"></textarea>
 	            </td>
-	        </tr>	
+	        </tr>
 		</table>
 	</div>
  

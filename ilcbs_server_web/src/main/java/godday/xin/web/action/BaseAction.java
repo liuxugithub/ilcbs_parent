@@ -2,39 +2,39 @@ package godday.xin.web.action;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;
-
 import org.apache.log4j.Logger;
+import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.InterceptorRefs;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-
 /**
  * @Description:
  * @Author:		传智播客 java学院	传智.宋江
  * @Company:	http://java.itcast.cn
  * @CreateDate:	2014年10月31日
  */
-
 //通过RequestAware, SessionAware, ApplicationAware实行接口获得request,session,application对象，action中就可直接调用
-
 /**
  *
  */
 @Controller
 @ParentPackage("default")
+@InterceptorRefs({
+		@InterceptorRef(value="exception",params={"logEnabled", "true", "logLevel", "warn"}),
+
+		@InterceptorRef("defaultStack")
+})
 @Scope("prototype")
 public class BaseAction<T> extends ActionSupport implements RequestAware, SessionAware, ApplicationAware{
 	private static Logger log = Logger.getLogger(BaseAction.class);
-	
 	private static final long serialVersionUID = 1L;
-	
 	protected Map<String, Object> request;
 	protected Map<String, Object> session;
 	protected Map<String, Object> application;

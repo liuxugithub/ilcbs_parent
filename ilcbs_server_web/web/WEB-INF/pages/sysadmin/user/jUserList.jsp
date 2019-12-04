@@ -66,9 +66,7 @@
   </div> 
   </div>
   </div>
-  
 <div>
-
 <div class="eXtremeTable" >
 <table id="ec_table" class="tableRegion" width="98%" >
 	<thead>
@@ -82,9 +80,7 @@
 	</tr>
 	</thead>
 	<tbody class="tableBody" >
-
 ${links}
-	
 	<c:forEach items="${results}" var="o" varStatus="status">
 	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'">
 		<td><input type="checkbox" name="id" value="${o.id}"/></td>
@@ -99,10 +95,7 @@ ${links}
 	</tbody>
 </table>
 </div>
- 
 </div>
- 
- 
 </form>
 </body>
 </html>

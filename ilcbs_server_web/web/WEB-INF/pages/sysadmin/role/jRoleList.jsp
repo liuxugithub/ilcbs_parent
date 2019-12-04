@@ -5,10 +5,8 @@
 <head>
 	<title></title>
 </head>
-
 <body>
 <form name="icform" method="post">
-
 <div id="menubar">
 <div id="middleMenubar">
 <div id="innerMenubar">
@@ -24,7 +22,6 @@
 </div>
 </div>
 </div>
-   
 <div class="textbox" id="centerTextbox">
   <div class="textbox-header">
   <div class="textbox-inner-header">
@@ -33,10 +30,7 @@
   </div> 
   </div>
   </div>
-  
 <div>
-
-
 <div class="eXtremeTable" >
 <table id="ec_table" class="tableRegion" width="98%" >
 	<thead>
@@ -59,14 +53,10 @@
 		<td>${o.remark}</td>
 	</tr>
 	</c:forEach>
-	
 	</tbody>
 </table>
 </div>
- 
 </div>
- 
- 
 </form>
 </body>
 </html>

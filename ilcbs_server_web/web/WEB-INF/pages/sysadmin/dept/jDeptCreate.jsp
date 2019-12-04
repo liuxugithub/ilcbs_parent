@@ -4,10 +4,8 @@
 <head>
 	<title></title>
 </head>
-
 <body>
 <form name="icform" method="post">
-
 <div id="menubar">
 <div id="middleMenubar">
 <div id="innerMenubar">
@@ -20,14 +18,11 @@
 </div>
 </div>
 </div>
-   
   <div class="textbox-title">
 	<img src="${ctx }/skin/default/images/icon/currency_yen.png"/>
    新增部门
   </div> 
-  
 
- 
     <div>
 		<table class="commonTable" cellspacing="1">
 	        <tr>

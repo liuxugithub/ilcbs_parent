@@ -46,6 +46,7 @@
 		${o.name}
 		</span>
 	</c:forEach>
+	${roleStr}
 </div>
 </div>
 </form>

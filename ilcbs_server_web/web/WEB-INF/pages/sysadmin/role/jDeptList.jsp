@@ -54,7 +54,6 @@
 </div>
 </div>
 </div>
-   
 <div class="textbox" id="centerTextbox">
   <div class="textbox-header">
   <div class="textbox-inner-header">
@@ -63,10 +62,7 @@
   </div> 
   </div>
   </div>
-  
 <div>
-
-
 <div class="eXtremeTable" >
 <table id="ec_table" class="tableRegion" width="98%" >
 	<thead>

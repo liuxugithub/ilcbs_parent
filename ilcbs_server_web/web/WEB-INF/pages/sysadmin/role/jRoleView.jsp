@@ -19,7 +19,6 @@
 </div>
 </div>
 </div>
-   
 <div class="textbox" id="centerTextbox">
   <div class="textbox-header">
   <div class="textbox-inner-header">
@@ -28,9 +27,6 @@
   </div> 
   </div>
   </div>
-  
-
- 
     <div>
 		<table class="commonTable" cellspacing="1">
 	        <tr>
@@ -43,8 +39,6 @@
 	        </tr>		
 		</table>
 	</div>
- 
- 
 </form>
 </body>
 </html>

@@ -1,18 +1,17 @@
 package godday.xin.utils;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.sql.Timestamp;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.ArrayList;
+import java.util.*;
 import java.text.DecimalFormat;
 
 import java.net.URLEncoder;
 import java.net.URLDecoder;
-import java.util.Date;
 
 
 /** UtilFuns is a JavaBean.  */
@@ -1529,8 +1528,7 @@ public static String getQQString( String strvalue ) {
 		} else {
 			return string;
 		} 
-	} 
-	
+	}
 	public static String getROOTPath(){
 		UtilFuns uf = new UtilFuns();
 		return uf.getClass().getResource("/").getPath().replace("/WEB-INF/classes/", "/").substring(1);
@@ -1538,4 +1536,108 @@ public static String getQQString( String strvalue ) {
 	public String getClassRootPath(){
 		return this.getClass().getResource("/").getPath();
 	}
+
+    /**
+     * 将数组数据转换为实体类
+     * 此处数组元素的顺序必须与实体类构造函数中的属性顺序一致
+     *
+     * @param list           数组对象集合
+     * @param clazz          实体类
+     * @param <T>            实体类
+     * @param model          实例化的实体类
+     * @return 实体类集合
+     */
+    public static <T> List<T> castEntity(List<Object[]> list, Class<T> clazz, Object model) {
+        List<T> returnList = new ArrayList<T>();
+        if (list.isEmpty()) {
+            return returnList;
+        }
+        //获取每个数组集合的元素个数
+        Object[] co = list.get(0);
+
+        //获取当前实体类的属性名、属性值、属性类别
+        List<Map> attributeInfoList = getFiledsInfo(model);
+        //创建属性类别数组
+        Class[] c2 = new Class[attributeInfoList.size()];
+        //如果数组集合元素个数与实体类属性个数不一致则发生错误
+        if (attributeInfoList.size() != co.length) {
+            return returnList;
+        }
+        //确定构造方法
+        for (int i = 0; i < attributeInfoList.size(); i++) {
+            c2[i] = (Class) attributeInfoList.get(i).get("type");
+        }
+        try {
+            for (Object[] o : list) {
+                Constructor<T> constructor = clazz.getConstructor(c2);
+                returnList.add(constructor.newInstance(o));
+            }
+        } catch (Exception ex) {
+            return returnList;
+        }
+        return returnList;
+    }
+    public static Object getFieldValueByName(String fieldName, Object modle) {
+        try {
+            String firstLetter = fieldName.substring(0, 1).toUpperCase();
+            String getter = "get" + firstLetter + fieldName.substring(1);
+            Method method = modle.getClass().getMethod(getter, new Class[]{});
+            Object value = method.invoke(modle, new Object[]{});
+            return value;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    public static List<Map> getFiledsInfo(Object model) {
+        Field[] fields = model.getClass().getDeclaredFields();
+        List<Map> list = new ArrayList(fields.length);
+        Map infoMap = null;
+        for (int i = 0; i < fields.length; i++) {
+            infoMap = new HashMap(3);
+            infoMap.put("type", fields[i].getType());
+            infoMap.put("name", fields[i].getName());
+            infoMap.put("value", getFieldValueByName(fields[i].getName(), model));
+            list.add(infoMap);
+        }
+        return list;
+    }
+
+    /*
+    ACAZ1923-ACAZ2001、ACAZ9340-ACAZ2232
+    转换为 活动明细
+         */
+    public static String means_id_handler(String str){
+        StringBuffer sb = new StringBuffer();
+        String new_str = str.replaceAll("\\s|\\u00A0", "");
+        String[] str_arr = new String(new_str).split("、");
+        for (String str_t : str_arr) {
+            System.out.println("判断活动："+str_t);
+            //提取 每一个活动代码
+            String[] s_arr = str_t.split("-");
+            if (s_arr.length == 2) {
+                //得到最后一个字母位置，然后构成 数字格式化0000的模板
+                String temp_str = s_arr[0].replaceAll("[a-z|A-Z]", "@");
+                int index = temp_str.lastIndexOf("@");
+                int start_end = temp_str.length() - index;
+                char[] c1 = new char[start_end - 1];
+                Arrays.fill(c1, '0');
+                String str_format = new String(c1);
+                char[] c2 = s_arr[0].toCharArray();
+                char[] new_word = Arrays.copyOf(c2, index + 1);
+                NumberFormat nf = new DecimalFormat(str_format);
+                String end_word = new String(new_word);
+                Integer integer_start = Integer.parseInt(s_arr[0].replaceAll(end_word, ""));
+                Integer integer_end = Integer.parseInt(s_arr[1].replaceAll(end_word, ""));
+                for (int i = integer_start; i <= integer_end; i++) {
+                    sb.append(end_word + String.valueOf(nf.format(Integer.valueOf(String.valueOf(i).trim()))));
+                    sb.append(",");
+                }
+            } else {
+                sb.append(s_arr[0] + ",");
+            }
+        }
+        String s = sb.substring(0, sb.length() - 1);
+        return s;
+    }
+
 }

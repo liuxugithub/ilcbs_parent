@@ -14,15 +14,16 @@ import org.springframework.stereotype.Controller;
  * @Company:	http://java.itcast.cn
  * @CreateDate:	2014年10月31日
  */
+
 @Namespace("/")
 @Results({
-	     @Result(name="title",location="/WEB-INF/pages/home/title.jsp"),
-	     @Result(name="fmain",location="/WEB-INF/pages/home/fmain.jsp"),
-	     @Result(name="toleft",location="/WEB-INF/pages/home/left.jsp"),
-	     @Result(name="tomain",location="/WEB-INF/pages/home/main.jsp")
-	     })
+		@Result(name="title",location="/WEB-INF/pages/home/title.jsp"),
+		@Result(name="fmain",location="/WEB-INF/pages/home/fmain.jsp"),
+		@Result(name="toleft",location="/WEB-INF/pages/${moduleName}/left.jsp"),
+		@Result(name="tomain",location="/WEB-INF/pages/${moduleName}/main.jsp")
+})
 public class HomeAction extends BaseAction{
-	
+
 	private String moduleName;		//动态指定跳转的模块，在struts.xml中配置动态的result
 	public String getModuleName() {
 		return moduleName;
@@ -45,7 +46,7 @@ public class HomeAction extends BaseAction{
 	public String tomain(){
 		return "tomain";
 	}
-	
+
 	@Action("homeAction_toleft")
 	public String toleft(){
 		return "toleft";

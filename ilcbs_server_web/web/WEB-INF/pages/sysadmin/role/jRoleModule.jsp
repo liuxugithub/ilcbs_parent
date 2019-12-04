@@ -6,54 +6,77 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" href="${ctx }/components/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css" />
-
 	<script type="text/javascript" src="${ctx }/components/zTree/js/jquery-1.4.4.min.js"></script>
 	<script type="text/javascript" src="${ctx }/components/zTree/js/jquery.ztree.core-3.5.min.js"></script>
 	<script type="text/javascript" src="${ctx }/components/zTree/js/jquery.ztree.excheck-3.5.min.js"></script>
-	<script type="text/javascript">
-		var zTreeObj;
+	<SCRIPT type="text/javascript">
+
 		var setting = {
-			check : {
-				enable : true
+			check: {
+				enable: true,
+				chkboxType: { "Y" : "ps", "N" : "ps" }
 			},
-			data : {
-				simpleData : {
-					enable : true
+			data: {
+				simpleData: {
+					enable: true
 				}
-			}
+			},
 		};
-		
-		$(function(){
-			$.ajax({
-				url:"${ctx}/sysadmin/roleAction_genzTreeNodes?id=${id}",
-				type:"GET",
-				dataType:"json",
-				success:initzTree
-			});
-		});
-		//回调函数
-		function initzTree(data){
-			//初始化树
-			zTreeObj = $.fn.zTree.init($("#jkTree"), setting, data);
-			
-			//展开树结点
-			zTreeObj.expandAll(true);
+		var code;
+		function setCheck() {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+					py = $("#py").attr("checked")? "p":"",
+					sy = $("#sy").attr("checked")? "s":"",
+					pn = $("#pn").attr("checked")? "p":"",
+					sn = $("#sn").attr("checked")? "s":"",
+					type = { "Y":py + sy, "N":pn + sn};
+			zTree.setting.check.chkboxType = type;
+			showCode('setting.check.chkboxType = { "Y" : "ps", "N" : "ps" };');
 		}
-		
-		//获取所有选择的节点
+		function showCode(str) {
+			if (!code) code = $("#code");
+			code.empty();
+			code.append("<li>"+str+"</li>");
+		}
+
+		$(document).ready(function(){
+
+		});
+
+		var zTreeObj;
+		$(function () {
+			$.ajax({
+				url:"${ctx}/sysadmin/roleActon_genzTreeNodes?id=${id}",
+				type:"get",
+				datatype:"json",
+				async: true,
+				success:function (value) {
+					value = JSON.parse(value);
+
+					console.log(value);
+					zTreeObj=$.fn.zTree.init($("#treeDemo"), setting, value);
+					zTreeObj.expandAll(true)
+				}
+			});
+
+		});
+
+
 		function submitCheckedNodes() {
-			var nodes = new Array();
-			nodes = zTreeObj.getCheckedNodes(true);		//取得选中的结点
-			var str = "";
-			for (i = 0; i < nodes.length; i++) {
-				if (str != "") {
-					str += ",";
+			var nodes=new Array();
+			nodes=zTreeObj.getCheckedNodes(true);
+			var str= "";
+			for(i=0;i<nodes.length;i++){
+				if(str!=""){
+					str+=",";
 				}
 				str += nodes[i].id;
 			}
-			$('#moduleIds').val(str);
+			$("moduleIds").val(str);
 		}
-	</script>
+	</SCRIPT>
+
+
 </head>
 
 <body>
@@ -72,7 +95,6 @@
 </div>
 </div>
 </div>
-   
 <div class="textbox" id="centerTextbox">
   <div class="textbox-header">
   <div class="textbox-inner-header">
@@ -81,10 +103,7 @@
   </div> 
   </div>
   </div>
-  
 <%-- <div>
-
-
 <div style="text-align:left">
 	<c:forEach items="${moduleList}" var="o">
 		<div style="padding:3px;">
@@ -95,15 +114,10 @@
 		</div>
 	</c:forEach>
 </div>
- 
 </div> --%>
-<div>  
-	<ul id="jkTree" class="ztree">
-	
-	</ul>  
+<div>
+	<ul id="treeDemo" class="ztree"></ul>
 </div>
- 
- 
 </form>
 </body>
 </html>

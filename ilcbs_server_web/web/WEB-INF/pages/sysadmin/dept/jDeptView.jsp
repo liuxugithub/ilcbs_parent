@@ -24,9 +24,7 @@
 	<img src="${ctx }/skin/default/images/icon/currency_yen.png"/>
    查看部门
   </div> 
-  
 
- 
     <div>
 		<table class="commonTable" cellspacing="1">
 	        <tr>

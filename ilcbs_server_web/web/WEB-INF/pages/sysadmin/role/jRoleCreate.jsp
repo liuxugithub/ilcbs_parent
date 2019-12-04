@@ -4,10 +4,8 @@
 <head>
 	<title></title>
 </head>
-
 <body>
 <form name="icform" method="post">
-
 <div id="menubar">
 <div id="middleMenubar">
 <div id="innerMenubar">
@@ -29,9 +27,6 @@
   </div> 
   </div>
   </div>
-  
-
- 
     <div>
 		<table class="commonTable" cellspacing="1">
 	        <tr>
@@ -44,8 +39,6 @@
 	        </tr>		
 		</table>
 	</div>
- 
- 
 </form>
 </body>
 </html>

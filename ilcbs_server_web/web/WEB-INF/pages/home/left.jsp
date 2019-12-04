@@ -10,8 +10,6 @@
 	<script language="javascript" src="${ctx}/js/pngfix_map.js"></script>
 	<script type="text/javascript" src="${ctx}/components/jquery-ui/jquery-1.2.6.js"></script>
 	<script type="text/javascript" src="${ctx}/skin/default/js/toggle.js"></script>
- 
-	
     <script language="javascript">
     	$().ready(function(){
 			$(fastMenu).hide();
@@ -28,14 +26,9 @@
     		}
     	}
     </script>
- 
-    
 </head>
- 
 <body id="left_frame">
 <div class="PositionFrame_black" id="PositionFrame"></div>
- 
- 
 <div id="sidebar" class="sidebar">
 	<div class="sidebar_t">
 		<div class="sidebar_t_l"></div>
@@ -53,7 +46,6 @@
 					<li><a href="${ctx}/baseinfo/leavebill/list.action" target="main" id="aa_1" onclick="linkHighlighted(this)">意见反馈</a></li>
 				</ul>
 	        </div>
-	        
 	       </div>
 	   </div>
     <div class="sidebar_t">
@@ -130,6 +122,5 @@
 	</div>
 </div>
 <!-- end1 -->
- 
 </body>
 </html>

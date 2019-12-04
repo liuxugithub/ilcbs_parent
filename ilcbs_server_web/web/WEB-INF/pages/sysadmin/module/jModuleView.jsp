@@ -48,11 +48,11 @@
 	        <tr>
 	            <td class="columnTitle">类型：</td>
 	            <td class="tableContentAuto">
-	            	<c:if test="${ctype==1}">主菜单</c:if>
-	            	<c:if test="${ctype==2}">左侧菜单</c:if>
-	            	<c:if test="${ctype==3}">按钮</c:if>
-	            	<c:if test="${ctype==4}">链接</c:if>
-	            	<c:if test="${ctype==5}">状态</c:if>
+	            	<c:if test="${ctype==0}">主菜单</c:if>
+	            	<c:if test="${ctype==1}">左侧菜单</c:if>
+	            	<c:if test="${ctype==2}">按钮</c:if>
+	            	<c:if test="${ctype==3}">链接</c:if>
+	            	<c:if test="${ctype==4}">状态</c:if>
 	            </td>
 	            <td class="columnTitle">状态：</td>
 	            <td class="tableContentAuto">
