@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ilcbs_utils" />
+        <module name="ilcbs_server_domain" />
+        <module name="ilcbs_exception" />
+        <module name="ilcbs_demo" />
+        <module name="ilcbs_client_domain" />
+        <module name="ilcbs_client_dao" />
+        <module name="ilcbs_server_dao" />
+        <module name="ilcbs_server_service" />
+        <module name="ilcbs_jms" />
+        <module name="ilcbs_cache" />
+        <module name="ilcbs_client_web" />
+        <module name="ilcbs_client_service" />
+        <module name="ilcbs_server_web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="ilcbs_jms" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

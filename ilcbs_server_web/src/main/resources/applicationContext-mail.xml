@@ -15,7 +15,6 @@
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<description>mail</description>
 	<context:property-placeholder location="classpath:mail.properties"/>
-	
 	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">  
         <property name="from">  
             <value>${mail.from}</value>  

@@ -32,12 +32,15 @@
 		</property>
 		<property name="jpaVendorAdapter">
 		<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-			<property name="generateDdl" value="false"></property>
 			<property name="database" value="ORACLE"></property>
 			<property name="databasePlatform" value="org.hibernate.dialect.Oracle10gDialect"></property>
 			<property name="showSql" value="true"></property>
 		</bean>
+
+
 		</property>
+
+
 
 	</bean>
 

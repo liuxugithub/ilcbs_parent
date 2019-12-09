@@ -6,10 +6,8 @@
 <head>
 	<title></title>
 </head>
-
 <body>
 <form name="icform" method="post">
-
 <div id="menubar">
 <div id="middleMenubar">
 <div id="innerMenubar">
@@ -27,7 +25,6 @@
 </div>
 </div>
 </div>
-   
 <div class="textbox" id="centerTextbox">
   <div class="textbox-header">
   <div class="textbox-inner-header">
@@ -37,10 +34,7 @@
   </div> 
   </div>
   </div>
-  
 <div>
-
-
 <div class="eXtremeTable" >
 <table id="ec_table" class="tableRegion" width="98%" >
 	<thead>
@@ -71,16 +65,15 @@
 		<td>${o.customName}</td>
 		<td><a href="contractAction_toview?id=${o.id}">${o.contractNo}</a></td>
 		 <td>
-		    ${fn:length(o.contractProducts) }
-		    <%-- ${o.contractProducts.size() } --%>
-		    /
+		   ${o.contractProducts.size()}
 		    <c:set var="extNo" value="0"></c:set>
-		    <c:forEach items="${o.contractProducts }"  var="cp" >
-		        <c:if test="${fn:length(cp.extCproducts)!=0 }">
-		            <c:set var="extNo" value="${extNo+cp.extCproducts.size() }"></c:set>
+		    <c:forEach items="${o.contractProducts}"  var="cp" >
+		        <c:if test="${cp.extCproducts.size()!=0 }">
+		            <c:set var="extNo" value="${extNo+cp.extCproducts.size()}"></c:set>
 		        </c:if>
-		    	
 		    </c:forEach>
+			   <c:forEach items="${o.contractProducts}" var="cp">
+			   </c:forEach>
 		    ${extNo }
 		</td>
 		<td>${o.inputBy}</td>
@@ -94,9 +87,8 @@
 		<td><c:if test="${o.state==0}">草稿</c:if>
 		<c:if test="${o.state==1}"><font color="green">已上报</font></c:if></td>
 		<td><a href="${ctx }/cargo/contractProductAction_tocreate?contract.id=${o.id}">[货物]</a></td>
-	</tr>
+		</tr>
 	</c:forEach>
-	
 	</tbody>
 </table>
 </div>

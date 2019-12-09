@@ -39,6 +39,8 @@
 	</property>
 
 	</bean>
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
 
 	<bean id="transationManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entitymanagerFactory"></property>
@@ -52,7 +54,9 @@
 	<context:component-scan base-package="godday.xin"></context:component-scan>
 
 	<!--组装其它 配置文件-->
+    <!--<import resource="classpath:applicationContext-job.xml"></import>-->
+	<import resource="classpath:applicationContext-shiro.xml"></import>
+	<import resource="classpath:applicationContext-mail.xml"></import>
+	<import resource="applicationContext-job.xml"></import>
 
-	<import resource="applicationContext-shiro.xml"></import>
-	<import resource="applicationContext-mail.xml"></import>
 </beans>

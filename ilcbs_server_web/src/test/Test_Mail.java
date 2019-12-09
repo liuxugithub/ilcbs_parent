@@ -1,3 +1,4 @@
+/*
 import godday.xin.utils.MailUtil;
 import org.junit.Test;
 
@@ -47,3 +48,4 @@ public class Test_Mail {
         tsp.close();
     }
 }
+*/

@@ -1,20 +1,18 @@
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
+/*
 import com.alibaba.fastjson.JSONObject;
 import godday.xin.domain.Dept;
 import godday.xin.domain.Role;
 import godday.xin.domain.User;
+import godday.xin.service.DeptService;
 import godday.xin.service.UserService;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.apache.struts2.components.Bean;
 import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.test.context.ContextConfiguration;
@@ -49,6 +46,9 @@ import java.util.regex.Pattern;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(value = {"classpath:applicationContext.xml"})
 public class Test_All {
+
+    @Autowired
+    DeptService deptService;
 
     @Autowired
     private UserService userService;
@@ -82,11 +82,13 @@ public class Test_All {
             }
         });
         for(User user : users){
-           /* System.out.println(user.getId());
+           */
+/* System.out.println(user.getId());
             System.out.println(user);
             List list =new ArrayList();
             list.add(user.getUserName());
-            list.add(user.getId());*/
+            list.add(user.getId());*//*
+
             Dept dept=user.getDept();
             System.out.println(dept);
             User user_1 = new User();
@@ -149,4 +151,34 @@ public class Test_All {
 
     }
 
+
+@Test
+    public void test_connection(){
+        Dept dept = new Dept();
+        dept.setDeptName("刘家军2");
+      User  user1 = new User();
+        user1.setUserName("刘琳琳");
+        User  user2 = new User();
+        user2.setUserName("刘煦");
+
+        Set<User> user = new HashSet<>();
+        user.add(user1);
+        user.add(user2);
+
+        user1.setDept(dept);
+        user2.setDept(dept);
+       */
+/* dept.setUsers(user);
+
+        deptService.saveOrUpdate(dept);*//*
+
+
+       userService.saveOrUpdate(user1);
+       userService.saveOrUpdate(user2);
+
+
+
+    }
+
 }
+*/

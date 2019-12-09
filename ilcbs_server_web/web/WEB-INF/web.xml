@@ -7,8 +7,6 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-	/WEB-INF/web.xml
-
 	<!--spring配置文件的加载的监听 器 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -18,8 +16,6 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
-
 
 	<filter>
 		<filter-name>shiroFilter</filter-name>

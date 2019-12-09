@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
  * @Company:	http://java.itcast.cn
  * @CreateDate:	2014年10月31日
  */
-
 @Namespace("/")
 @Results({
 		@Result(name="title",location="/WEB-INF/pages/home/title.jsp"),

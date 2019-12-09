@@ -20,8 +20,9 @@ import java.util.List;
 import java.util.Set;
 
 public class AuthRealm extends AuthorizingRealm {
+
     @Autowired
-    private UserService userService;
+    private  UserService userservice;
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         /*System.out.println("调用了授权方法1111");
@@ -67,11 +68,10 @@ public class AuthRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         System.out.println("调用了认证方法");
-
         UsernamePasswordToken u = (UsernamePasswordToken) authenticationToken;
         final String name=u.getUsername();
 
-        List<User> users=  userService.find(new Specification<User>() {
+        List<User> users=  userservice.find(new Specification<User>() {
             @Override
             public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 return cb.equal(root.get("userName").as(String.class),name);

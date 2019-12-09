@@ -33,7 +33,6 @@ public class UserAction extends BaseAction implements ModelDriven{
     private UserService UserService;
     @Autowired
     private DeptService deptService;
-
     @Autowired
     private RoleService roleService;
     private String[] roleIds;
